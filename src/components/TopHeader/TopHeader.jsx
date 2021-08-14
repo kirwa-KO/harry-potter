@@ -1,4 +1,4 @@
-import './TopHeader.css';
+import './TopHeader.scss';
 import BookMarkFill from '../../assets/BookMarkFill.svg';
 import UserFill from '../../assets/UserFill.svg';
 import HarryPotter from '../../assets/HarryPotter.svg';

@@ -1,5 +1,5 @@
 import TopHeader from "../components/TopHeader/TopHeader";
-import './HomePage.css';
+import './HomePage.scss';
 import MainSection from "../components/MainSection/MainSection";
 
 const HomePage = _ => {
