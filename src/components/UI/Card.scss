@@ -12,6 +12,7 @@
 	position: absolute;
 	top: 5%;
 	right: 5%;
+	cursor: pointer;
 }
 
 .card__img-section {
@@ -72,4 +73,8 @@
 .Slytherin,
 .dead {
 	background: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
+}
+
+.card-footer-mobile {
+	display: none;
 }
