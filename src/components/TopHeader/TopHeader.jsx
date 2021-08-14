@@ -12,7 +12,7 @@ const TopHeader = _ => {
 	const dispatch = useDispatch();
 
 	const [showFavorites, setShowFavorites] = useState(false);
-	const [showAddCharacter, setShowAddCharacter] = useState(true);
+	const [showAddCharacter, setShowAddCharacter] = useState(false);
 
 	const favoritesCharacters = useSelector(state => state.characters);
 
@@ -25,6 +25,8 @@ const TopHeader = _ => {
 	}
 
 	const favoritesList = favoritesCharacters.map((character, index) => {
+		if (index > 4)
+			return ;
 		return (
 			<>
 				<li>
@@ -49,6 +51,7 @@ const TopHeader = _ => {
 		<>
 			{ showAddCharacter && <AddCharacter onClose={onCloseAddCharacterHandler} /> }
 			<div className="top-header-container">
+				{ showFavorites && <ul className="favorite-charaters-list mobile-version">{ favoritesList }</ul> }
 				<span className="top-header-container__favoritos" onClick={showFavoritesHandler}>
 					<span>FAVORITOS</span>
 					<img src={BookMarkFill} alt="" />
@@ -57,8 +60,7 @@ const TopHeader = _ => {
 					<span>AGREGAR</span>
 					<img src={UserFill} alt="" />
 				</span>
-
-				{ showFavorites && <ul className="favorite-charaters-list">{ favoritesList }</ul> }
+				{ showFavorites && <ul className="favorite-charaters-list desktop-version">{ favoritesList }</ul> }
 				
 			</div>
 			<div className="harry-logo-and-text-section">

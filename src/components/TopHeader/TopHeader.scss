@@ -4,6 +4,10 @@
 	top: 0;
 	padding: 0.5rem;
 	
+	.favorite-charaters-list.mobile-version {
+		display: none;
+	}
+
 	.top-header-container__favoritos,
 	.top-header-container__agregar {
 		cursor: pointer;

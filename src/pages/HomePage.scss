@@ -16,6 +16,13 @@
 		z-index: 1;
 		position: fixed;
 		font-size: 0.7rem;
+		.desktop-version {
+			display: none !important;
+		}
+		.mobile-version {
+			display: block !important;
+			border-radius: 10px 10px 0px 0px;
+		}
 		.top-header-container__favoritos {
 			border-bottom-left-radius: 0;
 			border-top-left-radius: 10px;

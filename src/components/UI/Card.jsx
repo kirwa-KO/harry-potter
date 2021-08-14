@@ -1,4 +1,5 @@
 import BookMarkFill from '../../assets/BookMarkBorderGrey.svg';
+import BookMarkGreyFill from '../../assets/BookMarkGreyFill.svg';
 import './Card.scss';
 
 const Card = props => {
@@ -9,7 +10,7 @@ const Card = props => {
 
 	return (
 		<div className="card-container">
-			<img	src={BookMarkFill}
+			<img	src={props.isSelected ? BookMarkGreyFill : BookMarkFill}
 					alt=""
 					className="add-to-fav-btn"
 					onClick={onAddCharacterHandler.bind(null, props.character)} />
@@ -39,7 +40,7 @@ const Card = props => {
 				</div>
 				<div className="card-footer-mobile">
 					<p>VIVO ESTUDIANTE</p>
-					<img	src={BookMarkFill}
+					<img	src={props.isSelected ? BookMarkGreyFill : BookMarkFill}
 							alt=""
 							onClick={onAddCharacterHandler.bind(null, props.character)} />
 				</div>

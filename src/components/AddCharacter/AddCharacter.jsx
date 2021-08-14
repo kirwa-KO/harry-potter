@@ -15,14 +15,20 @@ const AddCharacter = props => {
 
 	const onSubmitFormHandler = event => {
 		event.preventDefault();
-		console.log('=======================================')
-		console.log(`name = ${name}`)
-		console.log(`birthday = ${birthday}`)
-		console.log(`eyeColor = ${eyeColor}`)
-		console.log(`hairColor = ${hairColor}`)
-		console.log(`gender = ${gender}`)
-		console.log(`studentOrStaff = ${studentOrStaff}`)
-		console.log('=======================================')
+		fetch('http://localhost:5000/characters', {
+			method: 'POST',
+			body: JSON.stringify({
+				name: name,
+				dateOfBirth: birthday,
+				eyeColour: eyeColor,
+				hairColour: hairColor,
+				gender: gender,
+				hogwartsStudent: studentOrStaff === 'Estudiante',
+				hogwartsStudent: studentOrStaff === 'Staff',
+			}),
+			headers : { 'Content-Type': 'application/json' }
+		}).then(res => console.log(res))
+		.catch(err => console.log(err))
 	}
 
 	return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './MainSection.scss';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -23,6 +23,8 @@ const MainSection = _ => {
 
 	const dispatch = useDispatch();
 
+	const favoritesCharacters = useSelector(state => state.characters);
+
 	const [showStudentORStaff, setShowStudentORStaff] = useState(true);
 
 	const addCharacterTOFavHandler = character => {
@@ -30,10 +32,17 @@ const MainSection = _ => {
 	}
 	
 	const StudentsCards = StudentsData.map((student, index) => {
-		const classes = getAppropriateClass(student.house, student.alive);
+		let classes = getAppropriateClass(student.house, student.alive);
+
+		const alreadySelected = favoritesCharacters.findIndex(character => character.name === student.name);
+		
+		if (alreadySelected !== -1)
+			classes = 'Hufflepuff'
+
 		return (
 			<Card
 					key={index * 15}
+					isSelected={alreadySelected !== -1}
 					character={student}
 					classes={classes}
 					onAddCharacter={addCharacterTOFavHandler} />
@@ -62,8 +71,8 @@ const MainSection = _ => {
 	return (
 		<>
 			<div className="staff-edtudiants-buttons">
-				<Button label="ESTUDIANTES" onClick={showStudent} />
-				<Button label="STAFF" onClick={showStaff} />
+				<Button label="ESTUDIANTES" onClick={showStudent} active={showStudentORStaff ? true : false} />
+				<Button label="STAFF" onClick={showStaff} active={!showStudentORStaff ? true : false} />
 			</div>
 			<div className="main-section-container">
 				{ showStudentORStaff && StudentsCards }
