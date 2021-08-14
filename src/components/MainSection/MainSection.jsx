@@ -52,7 +52,7 @@ const MainSection = _ => {
 	const StaffsCards = StaffsData.map((staff, index) => {
 		let classes = getAppropriateClass(staff.house, staff.alive);
 
-		const alreadySelected = favoritesCharacters.findIndex(character => character.name === student.name);
+		const alreadySelected = favoritesCharacters.findIndex(character => character.name === staff.name);
 		
 		if (alreadySelected !== -1)
 			classes = 'Hufflepuff'
