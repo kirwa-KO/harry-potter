@@ -50,10 +50,17 @@ const MainSection = _ => {
 	});
 
 	const StaffsCards = StaffsData.map((staff, index) => {
-		const classes = getAppropriateClass(staff.house, staff.alive);
+		let classes = getAppropriateClass(staff.house, staff.alive);
+
+		const alreadySelected = favoritesCharacters.findIndex(character => character.name === student.name);
+		
+		if (alreadySelected !== -1)
+			classes = 'Hufflepuff'
+
 		return (
 			<Card
 					key={index * 19}
+					isSelected={alreadySelected !== -1}
 					character={staff}
 					classes={classes}
 					onAddCharacter={addCharacterTOFavHandler} />
