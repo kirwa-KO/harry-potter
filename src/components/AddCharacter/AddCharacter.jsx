@@ -24,7 +24,7 @@ const AddCharacter = props => {
 				hairColour: hairColor,
 				gender: gender,
 				hogwartsStudent: studentOrStaff === 'Estudiante',
-				hogwartsStudent: studentOrStaff === 'Staff',
+				hogwartsStaff: studentOrStaff === 'Staff',
 			}),
 			headers : { 'Content-Type': 'application/json' }
 		}).then(res => console.log(res))

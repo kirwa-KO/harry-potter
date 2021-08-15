@@ -32,13 +32,10 @@ const MainSection = _ => {
 	}
 	
 	const StudentsCards = StudentsData.map((student, index) => {
-		let classes = getAppropriateClass(student.house, student.alive);
+		const classes = getAppropriateClass(student.house, student.alive);
 
 		const alreadySelected = favoritesCharacters.findIndex(character => character.name === student.name);
 		
-		if (alreadySelected !== -1)
-			classes = 'Hufflepuff'
-
 		return (
 			<Card
 					key={index * 15}
@@ -50,12 +47,9 @@ const MainSection = _ => {
 	});
 
 	const StaffsCards = StaffsData.map((staff, index) => {
-		let classes = getAppropriateClass(staff.house, staff.alive);
+		const classes = getAppropriateClass(staff.house, staff.alive);
 
 		const alreadySelected = favoritesCharacters.findIndex(character => character.name === staff.name);
-		
-		if (alreadySelected !== -1)
-			classes = 'Hufflepuff'
 
 		return (
 			<Card
